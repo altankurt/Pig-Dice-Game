@@ -22,4 +22,8 @@ let activePlayer = 0;
 btnRoll.addEventListener('click', function () {
   // random dice generating
   const dice = Math.trunc(Math.random() * 6) + 1;
+
+  // display dice
+  diceSt.classList.remove('hidden');
+  diceSt.src = `./assets/dice-${dice}.png`;
 });
