@@ -26,4 +26,19 @@ btnRoll.addEventListener('click', function () {
   // display dice
   diceSt.classList.remove('hidden');
   diceSt.src = `./assets/dice-${dice}.png`;
+
+  // dice rolls 1 special case
+  if (dice !== 1) {
+    // add dice to current score
+    currentScore = currentScore + dice;
+    document.getElementById(`current--${activePlayer}`).textContent =
+      currentScore;
+  } else {
+    // switch to next player
+    document.getElementById(`current--${activePlayer}`).textContent = 0;
+    currentScore = 0;
+    activePlayer = activePlayer === 0 ? 1 : 0;
+    player0.classList.toggle('player--active');
+    player1.classList.toggle('player--active');
+  }
 });
