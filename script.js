@@ -67,3 +67,29 @@ btnRoll.addEventListener('click', function () {
     }
   }
 });
+
+btnHold.addEventListener('click', function () {
+  if (playing) {
+    // add current score to active player's score
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+
+    // check if player's score
+    if (scores[activePlayer] >= 100) {
+      // finish game
+      playing = false;
+      diceSt.classList.add('hidden');
+
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add(' player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+    } else {
+      // switch to the next player
+      switchPlayer();
+    }
+  }
+});
