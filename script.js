@@ -17,3 +17,9 @@ diceSt.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
+
+//rolling dice functionality
+btnRoll.addEventListener('click', function () {
+  // random dice generating
+  const dice = Math.trunc(Math.random() * 6) + 1;
+});
